@@ -12,5 +12,13 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Echo Message
-        run: echo "CI pipeline ran successfully!"
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install HTML Validator
+        run: npm install -g html-validator-cli
+
+      - name: Validate index.html
+        run: html-validator --file=index.html --verbose
