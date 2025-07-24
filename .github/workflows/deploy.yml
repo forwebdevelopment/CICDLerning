@@ -1,0 +1,16 @@
+name: CI for Static Site
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Echo Message
+        run: echo "CI pipeline ran successfully!"
